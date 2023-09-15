@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Распродажа телефонов</title>
+
+</head>
+
+<body>
+
+<h1 style="color: Teal">Модель</h1>
+
+<!--*********************** КНОПКИ **************************-->
+
+<h2>  <a href="{% url 'catal'  %}">  <--- Вернуться в каталог  </a> </h2>
+
+<h1>  {{ phone_res.name }}  </h1>
+<img height="600" src="{{ phone_res.image }}">
+<br> Стоимость: {{ phone_res.price }}
+<br> Дата выпуска: {{ phone_res.release_date }}
+
+{% if phone_res.lte_exists  %}
+    <br> LTE: есть
+{% else %}
+    <br> LTE: нет
+{% endif %}
+
+
+
+
+</body>
+</html>

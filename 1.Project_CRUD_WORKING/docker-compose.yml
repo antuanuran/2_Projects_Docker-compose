@@ -1,0 +1,32 @@
+version: "3.3"
+
+networks:
+  private:
+
+services:
+  db:
+    image: postgres:alpine
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - private
+    ports:
+      - 5439:5432
+
+  backend:
+    image: api:latest
+    restart: always
+    env_file:
+      - .env    
+    networks:
+      - private
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+
+    
+
+
+
